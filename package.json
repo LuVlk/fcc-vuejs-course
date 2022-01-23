@@ -2,6 +2,9 @@
   "name": "vuejs",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "vue": "^3.2.29"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
