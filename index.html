@@ -31,21 +31,43 @@
             template: `
                 <form v-on:submit.prevent="handleSubmit">
                     <h1>{{ title }}</h1>
-                    <input type="email" v-model="email"/>
-                    <input type="password" v-model="password"/>
+                    <custom-input v-model="email" v-bind:label="emailLabel"/>
+                    <custom-input v-model="password" v-bind:label="passwordLabel"/>
                     <button>Submit</button>
                 </form>
             `,
+            components: ['custom-input'],
             data() {
                 return {
                     title: 'Login Form',
-                    email: '',
-                    password: ''
+                    email: 'example@mail.me',
+                    emailLabel: 'Email',
+                    password: '1234',
+                    passwordLabel: 'Password'
                 }
             },
             methods: {
                 handleSubmit() {
                     console.log(this.email, this.password)
+                }
+            }
+        })
+        app.component('custom-input', {
+            template: `
+                <label>
+                    {{ label }}
+                    <input type="text" v-model="inputValue"/>
+                </label>
+            `,
+            props: ['label', 'modelValue'],
+            computed: {
+                inputValue: {
+                    get() {
+                        return this.modelValue;
+                    },
+                    set(value) {
+                        this.$emit('update:modelValue', value)
+                    }
                 }
             }
         })
