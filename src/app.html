@@ -108,15 +108,13 @@
         },
         methods: {
           addToCart(product) {
-            let cartItem = {
+            if (!this.cart[product.id]) this.cart[product.id] = {
               id: product.id,
               name: product.name,
               price: product.price,
               quantity: 0
             }
-
-            if (!this.cart[cartItem.id]) this.cart[cartItem.id] = cartItem
-            this.cart[cartItem.id].quantity += product.quantity
+            this.cart[product.id].quantity += product.quantity
             console.log(this.cart)
           },
           toggleSidebar() {
