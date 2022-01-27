@@ -131,7 +131,14 @@
         props: ['toggle', 'cart'],
         computed: {
           cartTotal() {
-            return (this.cart.carrots * 4.82).toFixed(2)
+            const costsPerCartItem = Object.keys(this.cart).map((key, _) => {
+              const cartItem = this.cart[key];
+              return cartItem.quantity * cartItem.price.USD;
+            })
+
+            return costsPerCartItem
+              .reduce((acc, costPerCartItem) => {return acc + costPerCartItem}, 0)
+              .toFixed(2);
           }
         },
         template: `
