@@ -1,9 +1,9 @@
 <template>
-  Home
+  Past Orders
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'PastOrders'
 }
 </script>

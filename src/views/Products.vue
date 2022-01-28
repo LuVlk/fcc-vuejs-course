@@ -1,5 +1,5 @@
 <template>
-  <h1>Products</h1>
+  Products
 </template>
 
 <script>
@@ -7,7 +7,3 @@ export default {
   name: 'Products'
 }
 </script>
-
-<style scoped>
-
-</style>
