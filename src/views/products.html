@@ -14,16 +14,16 @@
             <i class="icofont-spoon-and-fork"></i>
             <span>Home</span>
           </a>
-          <a href="products.html" class="top-bar-link">
+          <a href="#" class="top-bar-link">
             <span>Products</span>
           </a>
           <a href="past-orders.html" class="top-bar-link">
             <span>Past Orders</span>
           </a>
         </nav>
-        <a href="#" class="top-bar-cart-link">
+        <a @click="toggleSidebar" class="top-bar-cart-link">
           <i class="icofont-cart-alt icofont-1x"></i>
-          <span>Cart (0)</span>
+          <span>Cart ({{ totalQuantity }})</span>
         </a>
       </header>
 
@@ -261,7 +261,16 @@
         </div>
       </main>
 
+      <sidebar
+        v-if="showSidebar"
+        :toggle="toggleSidebar"
+        :cart="cart"
+        :remove="removeFromCart"
+      />
+
     </div>
 
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="../app.js"></script>
   </body>
 </html>
